@@ -29,9 +29,12 @@ public class VideoSearchWS {
     }
 
     @WebMethod(operationName = "BusquedaPorFecha")
-    public List<Video> BusquedaPorFecha(@WebParam(name = "Fecha") final String Fecha, @WebParam(name = "Id") final int Id) {
+    public List<Video> BusquedaPorFecha(@WebParam(name = "dia") final String dia,
+                                        @WebParam(name = "mes") final String mes,
+                                        @WebParam(name = "año") final String año,
+                                        @WebParam(name = "Id") final int Id) {
         try{
-            return Video.getVideosByDate(Id, Fecha);
+            return Video.getVideosByDate(Id, dia, mes, año);
         } catch (SQLException e) {
             System.err.println("SQL EXCEPTION: " + e.getMessage());
             return null;

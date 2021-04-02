@@ -172,11 +172,12 @@ public class Video {
         return oRes;
     }
     
-        public static List<Video> getVideosByDate(int user, String date_to_search) throws SQLException {
+        public static List<Video> getVideosByDate(int user, String dia, String mes, String año) throws SQLException {
         PreparedStatement statement = Database.instance().connection.prepareStatement(QUERY_BY_CREATION_DATE);
         statement.setInt(1, user);
-        statement.setString(2, date_to_search);
-        
+        statement.setString(2, dia);
+        //TODO: Hacerlo :)
+              
         ResultSet result = statement.executeQuery();
         
         ArrayList<Video> oRes = new ArrayList<>();
