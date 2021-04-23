@@ -1,5 +1,6 @@
 package com.upc.isdcm_soap;
 
+import com.upc.isdcm_soap.models.Video;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

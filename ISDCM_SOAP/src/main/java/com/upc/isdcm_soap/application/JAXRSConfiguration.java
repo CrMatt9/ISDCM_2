@@ -1,4 +1,4 @@
-package com.upc.isdcm_soap;
+package com.upc.isdcm_soap.application;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

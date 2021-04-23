@@ -1,6 +1,6 @@
-package com.upc.isdcm_soap;
+package com.upc.isdcm_soap.models;
 
-import java.sql.Date;
+import com.upc.isdcm_soap.tools.Database;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Video {
+    private int id;
     private String title;
     private String author;
     private String creation_date;
@@ -18,9 +19,10 @@ public class Video {
     private String format;
     private String path;
     
-    public Video(String title, String author, String creation_date,
+    public Video(int id, String title, String author, String creation_date,
                     String duration, String plays, String description, int user_id,
                     String format, String path) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.creation_date = creation_date;
@@ -32,6 +34,10 @@ public class Video {
         this.path = path;
     }
  
+    public int getId() {
+        return this.id;
+    }
+    
     public String getTitle() {
         return this.title;
     }
@@ -66,6 +72,10 @@ public class Video {
      
     public String getPath() {
         return this.path;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
     
     public void setTitle(String value) {
@@ -122,6 +132,7 @@ public class Video {
     }
     
     public class FIELDS {
+        public static final String ID = "id";
         public static final String TITLE = "title";
         public static final String AUTHOR = "author";
         public static final String DATE = "creation_date";
@@ -143,6 +154,7 @@ public class Video {
         
         ArrayList<Video> oRes = new ArrayList<>();
         while (result.next()) {
+            int id = result.getInt(FIELDS.ID);
             String title = result.getString(FIELDS.TITLE);
             String author = result.getString(FIELDS.AUTHOR);
             String creation_date = result.getString(FIELDS.DATE);
@@ -153,7 +165,7 @@ public class Video {
             String format = result.getString(FIELDS.FORMAT);
             String path = result.getString(FIELDS.PATH);
             
-            oRes.add(new Video(title, author, creation_date, duration, plays, description, user_id, format, path));
+            oRes.add(new Video(id, title, author, creation_date, duration, plays, description, user_id, format, path));
         }
         
         return oRes;
@@ -169,6 +181,7 @@ public class Video {
         
         ArrayList<Video> oRes = new ArrayList<>();
         while (result.next()) {
+            int id = result.getInt(FIELDS.ID);
             String title = result.getString(FIELDS.TITLE);
             String author = result.getString(FIELDS.AUTHOR);
             String creation_date = result.getString(FIELDS.DATE);
@@ -179,7 +192,7 @@ public class Video {
             String format = result.getString(FIELDS.FORMAT);
             String path = result.getString(FIELDS.PATH);
             
-            oRes.add(new Video(title, author, creation_date, duration, plays, description, user_id, format, path));
+            oRes.add(new Video(id, title, author, creation_date, duration, plays, description, user_id, format, path));
         }
         
         return oRes;
@@ -193,6 +206,7 @@ public class Video {
         
         ArrayList<Video> oRes = new ArrayList<>();
         while (result.next()) {
+            int id = result.getInt(FIELDS.ID);
             String title = result.getString(FIELDS.TITLE);
             String author = result.getString(FIELDS.AUTHOR);
             String creation_date = result.getString(FIELDS.DATE);
@@ -203,7 +217,7 @@ public class Video {
             String format = result.getString(FIELDS.FORMAT);
             String path = result.getString(FIELDS.PATH);
             
-            oRes.add(new Video(title, author, creation_date, duration, plays, description, user_id, format, path));
+            oRes.add(new Video(id, title, author, creation_date, duration, plays, description, user_id, format, path));
         }
         
         return oRes;
@@ -240,6 +254,7 @@ public class Video {
         
         ArrayList<Video> oRes = new ArrayList<>();
         while (result.next()) {
+            int id = result.getInt(FIELDS.ID);
             String title = result.getString(FIELDS.TITLE);
             String author = result.getString(FIELDS.AUTHOR);
             String creation_date = result.getString(FIELDS.DATE);
@@ -250,7 +265,7 @@ public class Video {
             String format = result.getString(FIELDS.FORMAT);
             String path = result.getString(FIELDS.PATH);
             
-            oRes.add(new Video(title, author, creation_date, duration, plays, description, user_id, format, path));
+            oRes.add(new Video(id, title, author, creation_date, duration, plays, description, user_id, format, path));
         }
         
         return oRes;
